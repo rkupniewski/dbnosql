@@ -50,11 +50,7 @@ czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 ##Wnioski
 | PostgreSQL                  | MongoDB           |
 |-----------------------------|-------------------|
-| + szybki import           | + baza gotowa do działanai po instalacji    |
-| + poradzenie sobie z dużym zbiorem danych | + intuicyjne polecenie pisane w ciągu sekund |
+| - kłopotliwy import           | + prosty import (nawet ze skompresowanego archiwum)   |
+| - JSON-y nie są rozbijane na osobne relacje  | - trzeba sie nauczyć nowego języka zapytań  |
 | - długi czas najprostrzych agregacji | + szybkie zliczenie |
-| - ogromny czas poświęcony na konfiguracje | - długi import          |
-| - żmudne i niewygodne tworzenei poleceń które zadziałąją | - nieradzenie sobie z agregacjami na tak dużym zbiorze |
-
-####Spostrzeżenie
-Obie bazy danych mimo tak dużych zbiorów zużywaja naprawde niewiele pamięci RAM. Można wiec poprawic wydajnosć aplikacji implementując dodatkowo serwer cache który pośredniczy między bazą a aplikacjami. Język Java mechanizm do stworzenia go posiada w standardowej bibliotece.
+| + z racji popularności łatwiejszy język zapytań | - nieradzenie sobie z agregacjami na tak dużym zbiorze
