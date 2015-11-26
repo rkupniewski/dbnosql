@@ -1,0 +1,60 @@
+Ćwiczenia zostały wykonane na notebooku Fujitsu Celsius 710H z procesorem i5 pierwszej generacji. System operacyjny Windows 10.
+
+#Zadanie MongoDB vs Postgress
+
+#####Pobrany został plik RC_2015-01.bz2
+Plik w celach eksperymentalnych został rozkompresowany do pliku JSON.
+
+Nastepnie plik został zaimportowany do bazy MongoDB i Postgress
+
+Import do bazy MongoDB został wykonany za pomocą polecenia:
+
+mongoimport  --db test --collection reddit --drop --file RC_2015-01.json
+
+![Wykres pamięci](pic/1.png)
+
+Czas importu 01:00:43,37
+
+Import do bazy Postgress został wykonany za pomocą zewnetrznego programu Pgfutter ze strony:
+(https://github.com/lukasmartinelli/pgfutter)
+
+Składnia polecenia: pgfutter_windows_amd64 --db "reddit" --host "localhost" --port "5432" --user "postgres" --pw "martynka" --table "reddit"  json RC_2015-01.json
+
+
+
+![Wykres pamięci](pic/3.png)
+
+Czas importu 01:04:25,83
+
+Wniosek: najwiekszym problemem z szybkością operacji na bazach jest wydajność pamięci masowej. Ani procesor ani pamiec RAM nie jest zbyt mocno obciążana.
+
+
+
+Zliczanie rekordów:
+
+- MongoDB - db.reddit.count()
+
+czas operacji: zerowy, wynik : 53851542
+
+- Postgress - select count(*) from import.reddit;  
+
+czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
+
+---------------------------------
+
+
+
+
+
+
+##Wnioski
+| PostgreSQL                  | MongoDB           |
+|-----------------------------|-------------------|
+| + szybki import           | + baza gotowa do działanai po instalacji    |
+| + poradzenie sobie z dużym zbiorem danych | + intuicyjne polecenie pisane w ciągu sekund |
+| - długi czas najprostrzych agregacji | + szybkie zliczenie |
+| - ogromny czas poświęcony na konfiguracje | - długi import          |
+| - żmudne i niewygodne tworzenei poleceń które zadziałąją | - nieradzenie sobie z agregacjami na tak dużym zbiorze |
+
+####Spostrzeżenie
+Obie bazy danych mimo tak dużych zbiorów zużywaja naprawde niewiele pamięci RAM. Można wiec poprawic wydajnosć aplikacji implementując dodatkowo serwer cache który pośredniczy między bazą a aplikacjami. Język Java mechanizm do stworzenia go posiada w standardowej bibliotece.
