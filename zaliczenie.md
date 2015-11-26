@@ -57,7 +57,7 @@ czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 
 
 
-var geojsonFeature = {
+(var geojsonFeature = {
     "type": "Feature",
     "properties": {
         "name": "Coors Field",
@@ -68,4 +68,4 @@ var geojsonFeature = {
         "type": "Point",
         "coordinates": [-104.99404, 39.75621]
     }
-};
+};)
