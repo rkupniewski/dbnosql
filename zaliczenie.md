@@ -55,7 +55,8 @@ czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 | - długi czas najprostrzych agregacji | + szybkie zliczenie |
 | + z racji popularności łatwiejszy język zapytań | - nieradzenie sobie z agregacjami na tak dużym zbiorze
 
-
+----------------------------------
+##GeoJSON
 
 https://github.com/rkupniewski/dbnosql/blob/master/LA.geo.json
 
