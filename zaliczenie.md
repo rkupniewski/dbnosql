@@ -57,6 +57,6 @@ czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 
 
 
-(https://github.com/rkupniewski/dbnosql/blob/master/LA.geo.json)
+https://github.com/rkupniewski/dbnosql/blob/master/LA.geo.json
 
-(https://github.com/rkupniewski/dbnosql/blob/master/Orange.geo.json)
+https://github.com/rkupniewski/dbnosql/blob/master/Orange.geo.json
