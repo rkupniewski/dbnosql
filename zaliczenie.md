@@ -1,6 +1,8 @@
 Ćwiczenia zostały wykonane na notebooku Fujitsu Celsius 710H z procesorem i5 pierwszej generacji. System operacyjny Windows 10.
 
-#Zadanie MongoDB vs Postgress
+##Zadanie 2a
+
+###MongoDB vs Postgress
 
 #####Pobrany został plik RC_2015-01.bz2
 Plik w celach eksperymentalnych został rozkompresowany do pliku JSON.
@@ -29,6 +31,7 @@ Czas importu 01:04:25,83
 Wniosek: najwiekszym problemem z szybkością operacji na bazach jest wydajność pamięci masowej. Ani procesor ani pamiec RAM nie jest zbyt mocno obciążana.
 
 
+##Zadanie 2b
 
 Zliczanie rekordów:
 
@@ -39,6 +42,24 @@ czas operacji: zerowy, wynik : 53851542
 - Postgress - select count(*) from import.reddit;  
 
 czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
+
+
+##Zadanie 2c
+
+Skrypt:
+db.reddit.find({author_flair_text:null})
+
+wynik: 36160298,
+czas: 00:14:34.26
+
+Skrypt:
+select count(*) from import.reddit where data->>'author_flair_text' like 'null';
+
+wynik:36160298,
+czas:00:13:27.48
+
+
+
 
 ---------------------------------
 
@@ -58,6 +79,4 @@ czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 ----------------------------------
 ##GeoJSON
 
-https://github.com/rkupniewski/dbnosql/blob/master/LA.geo.json
-
-https://github.com/rkupniewski/dbnosql/blob/master/Orange.geo.json
+in progress
