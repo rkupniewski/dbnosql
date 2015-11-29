@@ -1,82 +1,67 @@
-Ćwiczenia zostały wykonane na notebooku Fujitsu Celsius 710H z procesorem i5 pierwszej generacji. System operacyjny Windows 10.
-
-##Zadanie 2a
-
-###MongoDB vs Postgress
-
-#####Pobrany został plik RC_2015-01.bz2
-Plik w celach eksperymentalnych został rozkompresowany do pliku JSON.
-
-Nastepnie plik został zaimportowany do bazy MongoDB i Postgress
-
-Import do bazy MongoDB został wykonany za pomocą polecenia:
-
-mongoimport  --db test --collection reddit --drop --file RC_2015-01.json
-
-![Wykres pamięci](pic/1.png)
-
-Czas importu 01:00:43,37
-
-Import do bazy Postgress został wykonany za pomocą zewnetrznego programu Pgfutter ze strony:
-(https://github.com/lukasmartinelli/pgfutter)
-
-Składnia polecenia: pgfutter_windows_amd64 --db "reddit" --host "localhost" --port "5432" --user "postgres" --pw "martynka" --table "reddit"  json RC_2015-01.json
-
-
-
-![Wykres pamięci](pic/3.png)
-
-Czas importu 01:04:25,83
-
-Wniosek: najwiekszym problemem z szybkością operacji na bazach jest wydajność pamięci masowej. Ani procesor ani pamiec RAM nie jest zbyt mocno obciążana.
-
-
-##Zadanie 2b
-
-Zliczanie rekordów:
-
-- MongoDB - db.reddit.count()
-
-czas operacji: zerowy, wynik : 53851542
-
-- Postgress - select count(*) from import.reddit;  
-
-czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
-
-
-##Zadanie 2c
-
-Skrypt:
-db.reddit.find({author_flair_text:null})
-
-wynik: 36160298,
-czas: 00:14:34.26
-
-Skrypt:
-select count(*) from import.reddit where data->>'author_flair_text' like 'null';
-
-wynik:36160298,
-czas:00:13:27.48
-
-
-
-
----------------------------------
-
-
-
-
-
-
-##Wnioski
-| PostgreSQL                  | MongoDB           |
-|-----------------------------|-------------------|
-| - kłopotliwy import           | + prosty import (nawet ze skompresowanego archiwum)   |
-| - JSON-y nie są rozbijane na osobne relacje, wszystko ląduje w polu typu JSON   | - trzeba sie nauczyć nowego języka zapytań  |
-| - długi czas najprostrzych agregacji | + szybkie zliczenie |
-| + z racji popularności łatwiejszy język zapytań | - nieradzenie sobie z agregacjami na tak dużym zbiorze
-
-----------------------------------
-##GeoJSON
-
-in progress
+<p>Ćwiczenia zostały wykonane na notebooku Fujitsu Celsius 710H z procesorem i5 pierwszej generacji. System operacyjny Windows 10.</p>
+<h2 id="zadanie-2a">Zadanie 2a</h2>
+<h3 id="mongodb-vs-postgress">MongoDB vs Postgress</h3>
+<h5 id="pobrany-zosta-plik-rc_2015-01-bz2">Pobrany został plik RC_2015-01.bz2</h5>
+<p>Plik w celach eksperymentalnych został rozkompresowany do pliku JSON.</p>
+<p>Nastepnie plik został zaimportowany do bazy MongoDB i Postgress</p>
+<p>Import do bazy MongoDB został wykonany za pomocą polecenia:</p>
+<p>mongoimport  --db test --collection reddit --drop --file RC_2015-01.json</p>
+<p><img src="/Users/Rafal/ti/dbnosql/pic/1.png" alt="Wykres pamięci"></p>
+<p>Czas importu 01:00:43,37</p>
+<p>Import do bazy Postgress został wykonany za pomocą zewnetrznego programu Pgfutter ze strony:
+(<a href="https://github.com/lukasmartinelli/pgfutter">https://github.com/lukasmartinelli/pgfutter</a>)</p>
+<p>Składnia polecenia: pgfutter_windows_amd64 --db "reddit" --host "localhost" --port "5432" --user "postgres" --pw "martynka" --table "reddit"  json RC_2015-01.json</p>
+<p>(import za pomoca skryptu (node ./bin/postgres-import-json.js) ze linku <a href="https://github.com/dzuluaga/postgres-import-json">https://github.com/dzuluaga/postgres-import-json</a> nie powiódł się)</p>
+<p><img src="/Users/Rafal/ti/dbnosql/pic/3.png" alt="Wykres pamięci"></p>
+<p>Czas importu 01:04:25,83</p>
+<p>Wniosek: najwiekszym problemem z szybkością operacji na bazach jest wydajność pamięci masowej. Ani procesor ani pamiec RAM nie jest zbyt mocno obciążana.</p>
+<h2 id="zadanie-2b">Zadanie 2b</h2>
+<p>Zliczanie rekordów:</p>
+<ul>
+<li>MongoDB - db.reddit.count()</li>
+</ul>
+<p>czas operacji: zerowy, wynik : 53851542</p>
+<ul>
+<li>Postgress - select count(*) from import.reddit;  </li>
+</ul>
+<p>czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542</p>
+<h2 id="zadanie-2c">Zadanie 2c</h2>
+<p>Skrypt:
+db.reddit.find({author_flair_text:null})</p>
+<p>wynik: 36160298,
+czas: 00:14:34.26</p>
+<p>Skrypt:
+select count(*) from import.reddit where data-&gt;&gt;'author_flair_text' like 'null';</p>
+<p>wynik:36160298,
+czas:00:13:27.48</p>
+<hr>
+<h2 id="wnioski">Wnioski</h2>
+<table>
+<thead>
+<tr>
+<th>PostgreSQL</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- kłopotliwy import</td>
+<td>+ prosty import (nawet ze skompresowanego archiwum)</td>
+</tr>
+<tr>
+<td>- JSON-y nie są rozbijane na osobne relacje, wszystko ląduje w polu typu JSON</td>
+<td>- trzeba sie nauczyć nowego języka zapytań</td>
+</tr>
+<tr>
+<td>- długi czas najprostrzych agregacji</td>
+<td>+ szybkie zliczenie</td>
+</tr>
+<tr>
+<td>+ z racji popularności łatwiejszy język zapytań</td>
+<td>- nieradzenie sobie z agregacjami na tak dużym zbiorze</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="geojson">GeoJSON</h2>
+<p>in progress</p>
