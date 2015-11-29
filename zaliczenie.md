@@ -2,7 +2,7 @@
 
 ##Zadanie 2a
 
-###MongoDB vs Postgress
+###MongoDB 3.07 vs Postgress 9.4
 
 #####Pobrany został plik RC_2015-01.bz2
 Plik w celach eksperymentalnych został rozkompresowany do pliku JSON.
