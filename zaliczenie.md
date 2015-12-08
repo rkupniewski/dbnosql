@@ -83,8 +83,20 @@ Importujemy baze miast Polski z pliku "miasta.polski.json". https://github.com/r
 za pomocą polecenia:
 ####mongoimport -d polska -c polska < miasta.polski.json
 
+
+Dodaje geoindeks poleceniem:
+
+db.pl.ensureIndex({"loc": "2dsphere"})
+{
+  "createdCollectionAutomatically": false,
+  "numIndexesBefore": 1,
+  "numIndexesAfter": 2,
+  "ok": 1
+}
+
 Nastepnie wybieram współrzedne Zamoscia [ 23.24852,50.721401] i za pomocą polecenia:
-####db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)
+
+db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)
 
 Otrzymuję z bazy listę czterech najblizszych lokalizacji koło Zamościa wraz ze współrzednymi.
 Otrzymanymi współrzednymi uzupełniam mapę ze strony: http://geojson.io
