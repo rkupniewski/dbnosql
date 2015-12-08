@@ -86,4 +86,7 @@ za pomocą polecenia:
 Nastepnie wybieram współrzedne Zamoscia [ 23.24852,50.721401] i za pomocą polecenia:
 ####db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)
 
-Otrzymuje z bazy liste czterech najblizszych lokalizacji koło Zamościa.
+Otrzymuję z bazy listę czterech najblizszych lokalizacji koło Zamościa wraz ze współrzednymi.
+Otrzymanymi współrzednymi uzupełniam mapę ze strony: http://geojson.io
+
+![Mapka 1](pic/mapka1.png)
