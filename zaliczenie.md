@@ -79,4 +79,11 @@ czas:00:13:27.48
 ----------------------------------
 ##GeoJSON
 
-Importujemy baze miast Polski z pliku miasta.polski.json (src/miasta.polski.json)
+Importujemy baze miast Polski z pliku "miasta.polski.json". https://github.com/rkupniewski/dbnosql/blob/master/src/miasta.polski.json
+za pomocą polecenia:
+####mongoimport -d polska -c polska < miasta.polski.json
+
+Nastepnie wybieram współrzedne Zamoscia [ 23.24852,50.721401] i za pomocą polecenia:
+####db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)
+
+Otrzymuje z bazy liste czterech najblizszych lokalizacji koło Zamościa.
