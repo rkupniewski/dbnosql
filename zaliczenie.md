@@ -99,9 +99,5 @@ Nastepnie wybieram współrzedne Zamoscia [ 23.24852,50.721401] i za pomocą pol
 db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)
 
 Otrzymuję z bazy listę czterech najblizszych lokalizacji koło Zamościa wraz ze współrzednymi.
-Otrzymanymi współrzednymi uzupełniam mapę ze strony: http://geojson.io
-
-![Mapka 1](pic/mapka1.png)
-
-A tu mamy GeoJSON -a
+Z ktorej tworzymy GeoJSON-a
 https://github.com/rkupniewski/dbnosql/blob/master/map.geojson
