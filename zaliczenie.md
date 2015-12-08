@@ -102,3 +102,6 @@ Otrzymuję z bazy listę czterech najblizszych lokalizacji koło Zamościa wraz 
 Otrzymanymi współrzednymi uzupełniam mapę ze strony: http://geojson.io
 
 ![Mapka 1](pic/mapka1.png)
+
+A tu mamy GeoJSON -a
+https://github.com/rkupniewski/dbnosql/blob/master/map.geojson
