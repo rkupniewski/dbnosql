@@ -79,4 +79,4 @@ czas:00:13:27.48
 ----------------------------------
 ##GeoJSON
 
-in progress
+Importujemy baze miast Polski z pliku miasta.polski.json (src/miasta.polski.json)
