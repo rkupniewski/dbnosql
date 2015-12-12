@@ -101,3 +101,8 @@ db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852
 Otrzymuję z bazy listę czterech najblizszych lokalizacji koło Zamościa wraz ze współrzednymi.
 
 Z ktorej tworzymy [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map.geojson)
+
+Za pomoca komendy:
+db.polska.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordinates: [[18.68976,54.361118] ,[21.04191,52.23547]]}}}},{_id=0, city:1})
+
+Tworzymy [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map.geojson) typu LineString
