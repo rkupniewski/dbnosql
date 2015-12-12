@@ -106,4 +106,9 @@ Za pomoca komendy:
 
 __db.polska.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordinates: [[18.68976,54.361118] ,[21.04191,52.23547]]}}}},{_id=0, city:1})__
 
-Tworzymy [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_line.geojson) typu LineString
+Tworzymy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_line.geojson) typu LineString
+
+Poleceniem :
+__db.p.find({ loc: {$geoWithin : { $geometry: { type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ] } } }},{_id:0, name:1} )__
+
+Generujemy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_polygon.geojson) typu Polygon
