@@ -1,4 +1,4 @@
-Ćwiczenia zostały wykonane na notebooku Fujitsu Celsius 710H z procesorem i5 pierwszej generacji. System operacyjny Windows 10.
+Ćwiczenia zostały wykonane na notebooku Fujitsu Celsius 710H z procesorem i5 pierwszej generacji. System operacyjny Windows 10 x64, dysk twardy standartowy, 4GB RAM.
 
 ##Zadanie 2a
 
