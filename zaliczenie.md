@@ -35,11 +35,11 @@ Wniosek: najwiekszym problemem z szybkością operacji na bazach jest wydajnoś�
 
 Zliczanie rekordów:
 
-- MongoDB - db.reddit.count()
+- MongoDB - __db.reddit.count()__
 
 czas operacji: zerowy, wynik : 53851542
 
-- Postgress - select count(*) from import.reddit;  
+- Postgres - __select count(*) from import.reddit;__  
 
 czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 
@@ -47,13 +47,13 @@ czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542
 ##Zadanie 2c
 
 Skrypt:
-db.reddit.find({author_flair_text:null})
+__db.reddit.find({author_flair_text:null})__
 
 wynik: 36160298,
 czas: 00:14:34.26
 
 Skrypt:
-select count(*) from import.reddit where data->>'author_flair_text' like 'null';
+__select count(*) from import.reddit where data->>'author_flair_text' like 'null';__
 
 wynik:36160298,
 czas:00:13:27.48
@@ -109,6 +109,6 @@ __db.polska.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordin
 Tworzymy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_line.geojson) typu LineString
 
 Poleceniem :
-__db.p.find({ loc: {$geoWithin : { $geometry: { type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ] } } }},{_id:0, name:1} )__
+__db.p.find({ loc: {$geoWithin : { $geometry: { type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ] } } }},{_id:0, name:1} ).limit(3)__
 
-Generujemy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_polygon.geojson) typu Polygon
+Generujemy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_polygon1.geojson) typu Polygon
