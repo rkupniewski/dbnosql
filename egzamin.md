@@ -51,10 +51,10 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 __Eksploracja danych__
 
-**Grupujemy restauracje wg rankingu poleceniem:**
+Grupujemy restauracje wg rankingu poleceniem:
 
 
-''' db.res.aggregate( [   {"$group" :      {"_id" : "$rating", "count" : {"$sum" : 1}}},     {"$sort" : {"count" : -1}},     {"$limit" : 14}     ])
+db.res.aggregate( [   {"$group" :      {"_id" : "$rating", "count" : {"$sum" : 1}}},     {"$sort" : {"count" : -1}},     {"$limit" : 14}     ])
 { "_id" : 5, "count" : 1107 }
 { "_id" : 5.5, "count" : 600 }
 { "_id" : 4.5, "count" : 472 }
@@ -66,7 +66,7 @@ __Eksploracja danych__
 { "_id" : 2.5, "count" : 13 }
 { "_id" : 1, "count" : 5 }
 { "_id" : 2, "count" : 3 }
-{ "_id" : 1.5, "count" : 2 },,,
+{ "_id" : 1.5, "count" : 2 }
 
 **Mamy posortowane dane: ilość restauracji pogrupowanych wg rankingu**
 
