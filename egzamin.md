@@ -1,6 +1,6 @@
 ##Egzamin Rafał Kupniewski
 
-**1. Import**
+**Import**
 
 Ponieważ baza Reddit jest bardzo duża i zapytania tam są wykonywane bardzo wolno więc tak jak część moich koleżanek i kolegów postanowiłem posłużyc się bazą restauracji.
 
@@ -19,6 +19,14 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 ![rys](pic/s5.jpg)
 
+
+**Wyszukiwanie restauracji podajacej konkretny typ jedzenia w konkretnym miescie**
+
+![rys](pic/s4.jpg)
+
+**Javascript**
+
+
 **Wyszukiwanie z warunkiem restauracji z najgorszym ratingiem**
 
 ![rys](pic/s6.jpg)
@@ -34,9 +42,3 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 **Agregacja**
 
 ![rys](pic/s8.jpg)
-
-
-a tu jeszcze pomysle....
-
-
-![rys](pic/s4.jpg)
