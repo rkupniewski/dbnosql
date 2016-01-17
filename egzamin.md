@@ -8,7 +8,7 @@ Ponieważ baza Reddit jest bardzo duża i zapytania tam są wykonywane bardzo wo
 
 Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
-*mongoimport  --db res --collection res --drop --file restauracje.json*
+```sh mongoimport  --db res --collection res --drop --file restauracje.json```
 
 **Wyszukiwanie - lista miejscowosci w ktorych są restauracje(część)**
 
