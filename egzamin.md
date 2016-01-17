@@ -13,7 +13,7 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 ![rys](pic/s10.jpg)
 
-**Wyszukiwanie restauracji z polskim jedzeniem**
+**Wyszukiwanie restauracji z polskim jedzeniem** :heart:
 
 ![rys](pic/s3.jpg)
 
@@ -30,7 +30,7 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 **Javascript**
 
 
-**Wyszukiwanie z warunkiem restauracji z najgorszym ratingiem**
+**Wyszukiwanie z warunkiem restauracji z najgorszym ratingiem** :rage:
 
 ![rys](pic/s6.jpg)
 
@@ -38,10 +38,10 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 ![rys](pic/s9.jpg)
 
-**Agregacja - Resauracje o najwyższej ocenie**
+**Agregacja - Restauracje o najwyższej ocenie** :+1:
 
 ![rys](pic/s7.jpg)
 
-**Agregacja - Miejscowości najrzadziej odwiedzane**
+**Agregacja - Miejscowości najrzadziej odwiedzane** :disappointed_relieved:
 
 ![rys](pic/s8.jpg)
