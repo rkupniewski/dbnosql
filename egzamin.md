@@ -1,4 +1,5 @@
-##Egzamin Rafał Kupniewski
+##Egzamin
+###Rafał Kupniewski
 
 **Import**
 
@@ -23,7 +24,7 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 ![rys](pic/s5.jpg)
 
 
-**Wyszukiwanie restauracji podajacej konkretny typ jedzenia w konkretnym miescie**
+**Wyszukiwanie restauracji podajacej konkretny typ jedzenia w konkretnym miescie** :angry:
 
 ![rys](pic/s4.jpg)
 
@@ -34,7 +35,7 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 ![rys](pic/s6.jpg)
 
-**Wyszukiwanie z warunkiem restauracji gdzie typ jedzenia ma miedzy 5 a 8 liter (w sumie nie wiem po co, ale można...)**
+**Wyszukiwanie z warunkiem restauracji gdzie typ jedzenia ma miedzy 5 a 8 liter (w sumie nie wiem po co, ale można...)** :confused:
 
 ![rys](pic/s9.jpg)
 
