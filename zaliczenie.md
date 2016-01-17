@@ -34,9 +34,10 @@ Widać wyraźnie że wzrosło obciążenie CPU za to wyraźnie widać że spadł
 Import do bazy Postgress został wykonany za pomocą zewnetrznego programu Pgfutter ze strony:
 (https://github.com/lukasmartinelli/pgfutter)
 
-Składnia polecenia: *pgfutter_windows_amd64 --db "reddit" --host "localhost" --port "5432" --user "postgres" --pw "martynka" --table "reddit"  json RC_2015-01.json*
+Składnia polecenia: 
+``` pgfutter_windows_amd64 --db "reddit" --host "localhost" --port "5432" --user "postgres" --pw "martynka" --table "reddit"  json RC_2015-01.json'''
 
-(import za pomoca skryptu (*node ./bin/postgres-import-json.js*) ze linku https://github.com/dzuluaga/postgres-import-json nie powiódł się)
+(import za pomoca skryptu ( ```node ./bin/postgres-import-json.js``` ) ze linku https://github.com/dzuluaga/postgres-import-json nie powiódł się)
 
 ![Wykres pamięci](pic/3.png)
 
@@ -49,11 +50,11 @@ Wniosek: najwiekszym problemem z szybkością operacji na bazach jest wydajnoś�
 
 Zliczanie rekordów:
 
-- **MongoDB:** *db.reddit.count()*
+- ```MongoDB:** *db.reddit.count()```
 
 czas operacji: zerowy, wynik : 53851542
 
-- **Postgres:**  *select count(*) from import.reddit;*
+- ```Postgres:**  *select count(*) from import.reddit;```
 
 **czas operacji : zdążyłem wyjść z psem i zrobić herbatę, wynik : 53851542**
 
@@ -61,13 +62,13 @@ czas operacji: zerowy, wynik : 53851542
 ##Zadanie 2c
 
 Polecenie:
-*db.reddit.find({author_flair_text:null})*
+```db.reddit.find({author_flair_text:null}) ```
 
 wynik: 36160298,
 czas: 00:14:34.26
 
 Polecenie:
-*select count(*) from import.reddit where data->>'author_flair_text' like 'null';*
+```select count(*) from import.reddit where data->>'author_flair_text' like 'null';```
 
 wynik:36160298,
 czas:00:13:27.48
@@ -96,22 +97,22 @@ czas:00:13:27.48
 Importujemy baze miast Polski z pliku "miasta.polski.json". https://github.com/rkupniewski/dbnosql/blob/master/src/miasta.polski.json
 za pomocą polecenia:
 
-*mongoimport -d polska -c polska < miasta.polski.json*
+```mongoimport -d polska -c polska < miasta.polski.json```
 
 
 Dodaje geoindeks poleceniem:
 
-*db.polska.ensureIndex({"loc": "2dsphere"})
-{
+```db.polska.ensureIndex({"loc": "2dsphere"})```
+```{
   "createdCollectionAutomatically": false,
   "numIndexesBefore": 1,
   "numIndexesAfter": 2,
   "ok": 1
-}*
+}```
 
 Nastepnie wybieram współrzedne Zamoscia [ 23.24852,50.721401] i za pomocą polecenia:
 
-__db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)__
+```db.polska.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}}}).skip(1).limit(4)```
 
 Otrzymuję z bazy listę czterech najblizszych lokalizacji koło Zamościa wraz ze współrzednymi.
 
@@ -119,12 +120,12 @@ Z ktorej tworzymy [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master
 
 Za pomoca komendy:
 
-*db.polska.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordinates: [[18.68976,54.361118] ,[21.04191,52.23547]]}}}},{_id=0, city:1})*
+```db.polska.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordinates: [[18.68976,54.361118] ,[21.04191,52.23547]]}}}},{_id=0, city:1})```
 
 Tworzymy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_line.geojson) typu LineString
 
 Poleceniem :
 
-*db.p.find({ loc: {$geoWithin : { $geometry: { type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ] } } }},{_id:0, name:1} ).limit(3)*
+```db.p.find({ loc: {$geoWithin : { $geometry: { type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ] } } }},{_id:0, name:1} ).limit(3)```
 
 Generujemy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_polygon1.geojson) typu Polygon
