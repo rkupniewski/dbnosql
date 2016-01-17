@@ -126,6 +126,12 @@ Tworzymy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/b
 
 Poleceniem :
 
-``` db.p.find({ loc:{$geoWithin :{ $geometry:{ type : "Polygon", coordinates:[ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ]}}}},{_id:0, name:1} ).limit(3)```
+``` db.p.find({ loc:{$geoWithin :```
+        ```      { $geometry:```
+                ````{ type : "Polygon", coordinates:```
+                ```[ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ]```
+                ```}```
+             ```}```
+          ``` }},{_id:0, name:1} ).limit(3)```
 
 Generujemy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_polygon1.geojson) typu Polygon
