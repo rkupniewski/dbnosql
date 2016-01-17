@@ -85,10 +85,10 @@ czas:00:13:27.48
 ##Wnioski
 | PostgreSQL                  | MongoDB           |
 |-----------------------------|-------------------|
-| - kłopotliwy import           | + prosty import (nawet ze skompresowanego archiwum)   |
-| - JSON-y nie są rozbijane na osobne relacje, wszystko ląduje w polu typu JSON   | - trzeba sie nauczyć nowego języka zapytań  |
-| - długi czas najprostrzych agregacji | + szybkie zliczenie |
-| + z racji popularności łatwiejszy język zapytań | - nieradzenie sobie z agregacjami na tak dużym zbiorze
+| :-1: kłopotliwy import           | :+1: prosty import (nawet ze skompresowanego archiwum)   |
+| :+1: JSON-y nie są rozbijane na osobne relacje, wszystko ląduje w polu typu JSON   | :-1: trzeba sie nauczyć nowego języka zapytań  |
+| :-1: długi czas najprostrzych agregacji | :+1: szybkie zliczenie |
+| :+1: z racji popularności łatwiejszy język zapytań | :-1: nieradzenie sobie z agregacjami na tak dużym zbiorze
 
 ----------------------------------
 ##GeoJSON
