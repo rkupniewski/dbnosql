@@ -9,13 +9,16 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 *mongoimport  --db res --collection res --drop --file restauracje.json*
 
+**Wyszukiwanie - lista miejscowosci w ktorych są restauracje(część)**
 
-**Wyszukiwanie**
+![rys](pic/s10.jpg)
+
+**Wyszukiwanie restauracji z polskim jedzeniem**
 
 ![rys](pic/s3.jpg)
 
 
-**Wyszukiwanie z warunkiem restauracji zaczynajacej sie na literke B**
+**Wyszukiwanie z restauracji zaczynajacej sie na literke B**
 
 ![rys](pic/s5.jpg)
 
@@ -31,14 +34,14 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 ![rys](pic/s6.jpg)
 
-**Wyszukiwanie z warunkiem restauracji gdzie typ jedzenia ma miedzy 5 a 8 liter**
+**Wyszukiwanie z warunkiem restauracji gdzie typ jedzenia ma miedzy 5 a 8 liter (w sumie nie wiem po co, ale można...)**
 
 ![rys](pic/s9.jpg)
 
-**Agregacja**
+**Agregacja - Resauracje o najwyższej ocenie**
 
 ![rys](pic/s7.jpg)
 
-**Agregacja**
+**Agregacja - Miejscowości najrzadziej odwiedzane**
 
 ![rys](pic/s8.jpg)
