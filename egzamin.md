@@ -53,6 +53,14 @@ __Eksploracja danych__
 
 Grupujemy restauracje wg rankingu poleceniem:
 
+```js
+db.res.aggregate(
+  [
+    {"$group" :
+          {"_id" : "$rating", "count" : {"$sum" : 1}}},
+          {"$sort" : {"count" : -1}}, {"$limit" : 14}
+          ])
+
 
 db.res.aggregate( [   {"$group" :      {"_id" : "$rating", "count" : {"$sum" : 1}}},     {"$sort" : {"count" : -1}},     {"$limit" : 14}     ])
 { "_id" : 5, "count" : 1107 }
