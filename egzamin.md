@@ -62,7 +62,6 @@ db.res.aggregate(
           ])
 
 
-db.res.aggregate( [   {"$group" :      {"_id" : "$rating", "count" : {"$sum" : 1}}},     {"$sort" : {"count" : -1}},     {"$limit" : 14}     ])
 { "_id" : 5, "count" : 1107 }
 { "_id" : 5.5, "count" : 600 }
 { "_id" : 4.5, "count" : 472 }
