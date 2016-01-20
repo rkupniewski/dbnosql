@@ -162,6 +162,9 @@ Wynik ten jest nie dokońca "sprawiedliwy" bo największą średnią mają resta
 { "_id" : "Polish", "avgRating" : 5.166666666666667 }
 { "_id" : "Mediterranean", "avgRating" : 5.166666666666667 }
 ```
+
+I wykresik słupkowy
+
 ![rys](pic/s14.png)
 
 Restauracja, która serwuje jedzenie "Punjabi" jest tylko jedna.
