@@ -156,7 +156,7 @@ db.polska.find(
   }}}).skip(1).limit(4)
 ```
 
-
+Gdzie $maxDistance: 20000 oznacza odległość w metrach.
 
 
 
