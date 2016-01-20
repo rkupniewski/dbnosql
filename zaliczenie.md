@@ -151,20 +151,12 @@ Nastepnie wybieram współrzedne Zamoscia [ 23.24852,50.721401] i za pomocą pol
 
 ```js
 db.polska.find(
-{loc: {$near: {$geometry:
-{type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000}
-}}).skip(1).limit(4)
+  {loc:{$near:{$geometry:
+    {type: "Point", coordinates: [ 23.24852,50.721401]}, $maxDistance: 20000
+  }}}).skip(1).limit(4)
 ```
 
-```js
-db.polska.ensureIndex({"loc": "2dsphere"})
-{
-  "createdCollectionAutomatically": false,
-  "numIndexesBefore": 1,
-  "numIndexesAfter": 2,
-  "ok": 1
-}
-```
+
 
 
 
@@ -177,9 +169,9 @@ Za pomoca komendy:
 
 ```js
 db.polska.find(
-{loc: {$geoIntersects: {$geometry:
-{type: "LineString", coordinates: [[18.68976,54.361118] ,[21.04191,52.23547]]}
-}}},{_id=0, city:1})
+  {loc: {$geoIntersects: {$geometry:
+     {type: "LineString", coordinates: [[18.68976,54.361118] ,[21.04191,52.23547]]}
+   }}},{_id=0, city:1})
 ```
 
 
@@ -190,10 +182,9 @@ Poleceniem :
 
 ```js
 db.p.find(
-{ loc: {$geoWithin : { $geometry:
-{ type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ] }
- }
- }},{_id:0, name:1} ).limit(3)
+  { loc: {$geoWithin : { $geometry:
+    {type : "Polygon", coordinates: [ [[19.91667,50.083328], [22.566669,51.25], [19.02754,50.258419], [19.91667,50.083328]] ]   }
+   }}},{_id:0, name:1} ).limit(3)
 ```
 
 
