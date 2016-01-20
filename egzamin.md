@@ -49,6 +49,8 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 
 
+
+
 __Eksploracja danych__
 
 Grupujemy restauracje wg rankingu poleceniem:
