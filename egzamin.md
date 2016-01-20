@@ -75,6 +75,7 @@ db.res.aggregate( [   {"$group" :      {"_id" : "$rating", "count" : {"$sum" : 1
 { "_id" : 1, "count" : 5 }
 { "_id" : 2, "count" : 3 }
 { "_id" : 1.5, "count" : 2 }
+```
 
 **Mamy posortowane dane: ilość restauracji pogrupowanych wg rankingu**
 
