@@ -3,7 +3,7 @@
 
 **Import**
 
-Ponieważ baza Reddit jest bardzo duża i zapytania tam są wykonywane bardzo wolno więc tak jak część moich koleżanek i kolegów postanowiłem posłużyc się bazą restauracji.
+Ponieważ baza Reddit jest bardzo duża i zapytania tam są wykonywane bardzo wolno, więc tak jak część moich koleżanek i kolegów postanowiłem posłużyc się bazą restauracji.
 
 
 Zaimportowanie do bazy MongoDB za pomocą polecenia:
@@ -189,7 +189,7 @@ db.res.aggregate(
 { "_id" :"5 Circketers Court", "count" : 6}
 { "_id" :"203 Coldharbour Lane", "count" :6 }
 ```
-Suma restauracji w danym mieście? grupowane po kodzie pocztowym
+Suma restauracji w danym mieście, grupowane po kodzie pocztowym
 
 ```js
 db.res.aggregate(
