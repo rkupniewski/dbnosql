@@ -3,14 +3,14 @@
 
 **Import**
 
-Ponieważ baza Reddit jest bardzo duża i zapytania tam są wykonywane bardzo wolno, więc tak jak część moich koleżanek i kolegów postanowiłem posłużyc się bazą restauracji.
+Ponieważ wielkość bazy Reddit jest bardzo duża, a czas wykonywania na niej zapytań jest bardzo długi,  postanowiłem tak jak część moich koleżanek i kolegów posłużyc się bazą restauracji.
 
 
 Zaimportowanie do bazy MongoDB za pomocą polecenia:
 
 *mongoimport  --db res --collection res --drop --file restauracje.json*
 
-**Wyszukiwanie - lista miejscowosci w ktorych są restauracje(część)**
+**Wyszukiwanie - lista miejscowości w których są restauracje(część)**
 ```js
 db.res.distinct("address line 2").sort()
 
@@ -41,7 +41,7 @@ db.res.distinct("address line 2").sort()
 
 ```
 
-**Wyszukiwanie restauracji z polskim jedzeniem** :heart:
+**Wyszukiwanie restauracji z polskimi potrawami** :heart:
 ```js
 > db.res.find({type_of_food: "Polish"},{_id: 0 , name:1})
 
@@ -50,7 +50,7 @@ db.res.distinct("address line 2").sort()
 { "name" : "Barts Kebab" }
 ```
 
-**Wyszukiwanie z restauracji zaczynajacej sie na literke B**
+**Wyszukiwanie restauracji gdzie nazwa rozpoczyna się na literę B**
 ```js
 > db.res.find({"name": /^B/},{_id:0, name:1}).sort({name: 1}).limit(3)
 
@@ -60,7 +60,7 @@ db.res.distinct("address line 2").sort()
 ```
 
 
-**Wyszukiwanie restauracji podajacej konkretny typ jedzenia w konkretnym miescie** :angry:
+**Wyszukiwanie restauracji podajacej potrawy według kraju pochodzenia w danym mieście** :angry:
 ```js
 > db.res.find({"type_of_food": "American", "address line 2": "Stockton on Tees"},{_id:0, name:1})
 { "name" : "Bishy's Chicken" }
@@ -151,7 +151,7 @@ db.res.aggregate(
 
 **Mamy posortowane dane: ilość restauracji pogrupowanych wg rankingu**
 
-Konwertuje do CVS
+Konwertujemy do CVS
 
 | _id            | count     |
 |----------------|-----------|
@@ -168,11 +168,11 @@ Konwertuje do CVS
 | 2,0            |	3        |
 | 1,5            |	2        |
 
-I robimy wykresik
+I tworzymy wykres
 
 ![rys](pic/s11.png)
 
-Suma restauracji pod danym adresem.
+Ilość restauracji pod danym adresem.
 
 ```js
 db.res.aggregate(
@@ -189,7 +189,7 @@ db.res.aggregate(
 { "_id" :"5 Circketers Court", "count" : 6}
 { "_id" :"203 Coldharbour Lane", "count" :6 }
 ```
-Suma restauracji w danym mieście, grupowane po kodzie pocztowym
+Ilość restauracji w danym mieście, grupowane po kodzie pocztowym
 
 ```js
 db.res.aggregate(
@@ -215,8 +215,9 @@ I wizualizacja w postaci wykresu:
 
 ![rys](pic/s12.png)
 
-Wyświetlenie średniego rankingu dla restauracji, wg rodzaju serwowanego jedzenia.
-Wynik ten jest nie dokońca "sprawiedliwy" bo największą średnią mają restauracje któych type serwowanego jedzenia występuje niewiele razy.
+Zestawiene według średniej oceny dla restauracji, wg kraju pochodzenia potraw.
+Wynik ten jest nie dokońca "sprawiedliwy" bo największą średnią mają restauracje w któych serwowane są potrawy z rzadko występujących krajów.
+
 ```js
  db.res.aggregate([
   { $group: {_id: "$type_of_food", avgRating: {$avg: "$rating"}} },
@@ -235,11 +236,11 @@ Wynik ten jest nie dokońca "sprawiedliwy" bo największą średnią mają resta
 { "_id" : "Mediterranean", "avgRating" : 5.166666666666667 }
 ```
 
-I wykresik słupkowy
+Wykres słupkowy
 
 ![rys](pic/s14.png)
 
-Restauracja, która serwuje jedzenie "Punjabi" jest tylko jedna.
+Restauracja, która serwuje jedzenie  typu "Punjabi" jest tylko jedna.
 ```js
 db.res.find({type_of_food: "Punjabi"},{_id: 0, name: 1, type_of_food: 1})
 
@@ -247,7 +248,7 @@ db.res.find({type_of_food: "Punjabi"},{_id: 0, name: 1, type_of_food: 1})
 "type_of_food" : "Punjabi" }
 ```
 
-Restauracji serwująca jedzenie śródziemnomorskie (Mediterranean) jest 12
+Restauracje serwujące potrawy śródziemnomorskie (Mediterranean) jest ich 12
 ```js
 db.res.find({type_of_food: "Mediterranean"}).count()
 
