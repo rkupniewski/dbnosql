@@ -11,43 +11,114 @@ Zaimportowanie do bazy MongoDB za pomocą polecenia:
 *mongoimport  --db res --collection res --drop --file restauracje.json*
 
 **Wyszukiwanie - lista miejscowosci w ktorych są restauracje(część)**
+```js
+db.res.distinct("address line 2").sort()
 
-![rys](pic/s10.jpg)
+        "Abbeywood",
+        "Abbots Langley",
+        "Aberbargoed",
+        "Abercynon",
+        "Aberdare",
+        "Aberdeen",
+        "Aberdeenshire",
+        "Abingdon",
+        "Accrington",
+        "Acton",
+        "Addlestone",
+        "Albrighton",
+        "Alderley Edge",
+        "Alloa",
+        "Altrincham",
+        "Alva",
+        "Amble",
+        "Amesbury",
+        "Andover",
+        "Archway",
+        "Argyll",
+        "Arnold",
+        "Ashford",
+        "Ashington",
+
+```
 
 **Wyszukiwanie restauracji z polskim jedzeniem** :heart:
+```js
+> db.res.find({type_of_food: "Polish"},{_id: 0 , name:1})
 
-![rys](pic/s3.jpg)
-
+{ "name" : "Ani-Mag Heavenly Food" }
+{ "name" : "Ani-Mag Heavenly Food" }
+{ "name" : "Barts Kebab" }
+```
 
 **Wyszukiwanie z restauracji zaczynajacej sie na literke B**
+```js
+> db.res.find({"name": /^B/},{_id:0, name:1}).sort({name: 1}).limit(3)
 
-![rys](pic/s5.jpg)
+{ "name" : "B & H Chippy & Cafe" }
+{ "name" : "B & U Uni Pizza & Curry" }
+{ "name" : "B & U Uni Pizza & Curry" }
+```
 
 
 **Wyszukiwanie restauracji podajacej konkretny typ jedzenia w konkretnym miescie** :angry:
-
-![rys](pic/s4.jpg)
-
+```js
+> db.res.find({"type_of_food": "American", "address line 2": "Stockton on Tees"},{_id:0, name:1})
+{ "name" : "Bishy's Chicken" }
+```
 **Javascript**
 
 
-**Wyszukiwanie z warunkiem restauracji z najgorszym ratingiem** :rage:
 
-![rys](pic/s6.jpg)
-
-**Wyszukiwanie z warunkiem restauracji gdzie typ jedzenia ma miedzy 5 a 8 liter (w sumie nie wiem po co, ale można...)** :confused:
-
-![rys](pic/s9.jpg)
 
 **Agregacja - Restauracje o najwyższej ocenie** :+1:
+```js
+> db.res.aggregate([
+      {$group:{_id:"$name",avgRating:
+            {$avg: "$rating"}}},
+        {$sort:{avgRating:-1}}])
 
-![rys](pic/s7.jpg)
+{ "_id" : "Big Fish - Collection Only", "avgRating" : 6 }
+{ "_id" : "Benny's - Collection Only", "avgRating" : 6 }
+{ "_id" : "Best Fish & Chips", "avgRating" : 6 }
+{ "_id" : "Beast Gourmet Burgers", "avgRating" : 6 }
+{ "_id" : "Alex Plaice", "avgRating" : 6 }
+{ "_id" : "Bearstead Fish Bar - Collection Only", "avgRating" : 6 }
+{ "_id" : "Best Pizza & Kebab", "avgRating" : 6 }
+{ "_id" : "Bath Sushi", "avgRating" : 6 }
+{ "_id" : "Ark Burger & Salad Bar", "avgRating" : 6 }
+{ "_id" : "Benny's Grill House", "avgRating" : 6 }
+{ "_id" : "Ayubowan", "avgRating" : 6 }
+{ "_id" : "Atlantic Gourmet", "avgRating" : 6 }
+{ "_id" : "Athena B Fish Bar - Collection Only", "avgRating" : 6 }
+{ "_id" : "Barnacle Bills", "avgRating" : 6 }
+{ "_id" : "Asli Zaiqa", "avgRating" : 6 }
+{ "_id" : "Aroma Bar Restaurant Takeaway - Collection Only", "avgRating" : 6 }
+{ "_id" : "Arabesque", "avgRating" : 6 }
+{ "_id" : "Ann's Thai@ The Bulls Head", "avgRating" : 6 }
+{ "_id" : "Anis's - The Taste of Perfection", "avgRating" : 6 }
+{ "_id" : "Biggapot Caribbean - Collection Only", "avgRating" : 6 }
+
+```
+
 
 **Agregacja - Miejscowości najrzadziej odwiedzane** :disappointed_relieved:
+```js
+> db.res.aggregate ([{"$group" :
+                    {"_id" : "$address line 2", "count" :
+                    {"$sum":1}}} ,
+                    {"$sort":{"count":1}},{"$limit":10}])
 
-![rys](pic/s8.jpg)
-
-
+{ "_id" : "Stockon-on-Tees", "count" : 1 }
+{ "_id" : "Welwyn Garden City", "count" : 1 }
+{ "_id" : "Lye", "count" : 1 }
+{ "_id" : "Woodgate Vally", "count" : 1 }
+{ "_id" : "Billingham", "count" : 1 }
+{ "_id" : "Stockton on Tees", "count" : 1 }
+{ "_id" : "Margate", "count" : 1 }
+{ "_id" : "Worsley", "count" : 1 }
+{ "_id" : "Bloxwich", "count" : 1 }
+{ "_id" : "Blackwood", "count" : 1 }
+```
 
 
 

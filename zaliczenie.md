@@ -189,3 +189,5 @@ db.p.find(
 
 
 Generujemy dane do otrzymania [GeoJSON-a](https://github.com/rkupniewski/dbnosql/blob/master/map_polygon1.geojson) typu Polygon
+
+Jak widac, na mapie ograniczonej poleceniem otrzymujemy zbiór punktów zawierajacych sie w tym obszarze.
